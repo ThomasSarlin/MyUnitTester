@@ -1,39 +1,38 @@
 
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class Model {
+    String className;
+    public ArrayList<String> runTest(String className){
+        this.className=className;
 
-    public boolean checkTextField(String className){
+        Method[] methods;
+        ArrayList<String> methodResults= new ArrayList<>();
         try {
-            return TestClass.class.isAssignableFrom(Class.forName(className));
-            }
-            catch (ClassNotFoundException e1) {
-            return false;
+            methods = Class.forName(className).getMethods();
+            Object tempClass=Class.forName(className).newInstance();
+            methodResults=runMethods(methods,tempClass);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
         }
+
+        return methodResults;
     }
 
-    public ArrayList<String> runTest(String className)
-            throws InvocationTargetException, ClassNotFoundException,
-            IllegalAccessException, InstantiationException, NoSuchMethodException {
-
+    private ArrayList<String> runMethods(Method[] methods, Object tempClass) {
         boolean result;
-        Object tempClass;
-        Method[] methods;
-
-        ArrayList<String> methodResults= new ArrayList<>();
-        int successCount=0;
-        int failCount=0;
-        int exceptionFailCount=0;
-
-        tempClass=Class.forName(className).newInstance();
-        methods=Class.forName(className).getMethods();
-
+        ArrayList<String> methodResults=new ArrayList<>();
+        int successCount=0,failCount=0,exceptionFailCount=0;
         for (Method m:methods){
             if(checkTestMethod(m)){
-                Class.forName(className).getMethod("setUp")
-                        .invoke(tempClass);
+                trySetUp(tempClass);
 
                 try {
                     result = (boolean) m.invoke(tempClass);
@@ -50,9 +49,36 @@ public class Model {
                     methodResults.add(m.getName() + " FAIL Generated "
                             + e.getCause());
                     exceptionFailCount++;
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
                 }
             }
         }
+
+        tryTearDown(tempClass);
+        methodResults.add("\n\n\nSuccessful tests: " +successCount
+                +"\nFailed tests:" +failCount
+                +"\nFailed tests with Exception thrown: "+ exceptionFailCount);
+        return methodResults;
+    }
+
+    private void trySetUp(Object tempClass){
+
+        try {
+            Class.forName(className).getMethod("setUp")
+                    .invoke(tempClass);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void tryTearDown(Object tempClass){
 
         try {
             Class.forName(className).getMethod("tearDown")
@@ -60,11 +86,23 @@ public class Model {
         } catch (NoSuchMethodException e) {
             System.out.println("No tearDown available");
             e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        methodResults.add("\n\nSuccessful tests: " + successCount
-                +"\nFailed tests: " + failCount
-                +"\nException generated fails: " + exceptionFailCount);
-        return methodResults;
+    }
+
+
+    public boolean checkTextField(String className){
+        try {
+            return TestClass.class.isAssignableFrom(Class.forName(className));
+        }
+        catch (ClassNotFoundException e1) {
+            return false;
+        }
     }
 
     private boolean checkTestMethod(Method m){
