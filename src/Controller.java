@@ -1,10 +1,9 @@
-package main;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.concurrent.ExecutionException;
 
 public class Controller {
@@ -38,7 +37,8 @@ public class Controller {
 
                 @Override
                 protected ArrayList<String> doInBackground() throws Exception {
-                    return (model.checkTextField()?model.runTest():null);
+                    return (model.checkTextField(view.textField.getText())
+                            ?model.runTest(view.textField.getText()):null);
                 }
 
                 @Override
@@ -46,22 +46,23 @@ public class Controller {
                     try {
                         if(get()!=null) {
                             ArrayList<String> strings = get();
+                            view.textArea.setText("");
                             for (String string : strings) {
                                 view.textArea.append(string);
                             }
                         }else{
-
-                            view.frame.add(new JOptionPane(
-                                    "Class does no exist",
-                                    JOptionPane.ERROR_MESSAGE));
+                            JOptionPane.showMessageDialog(view.frame,
+                                    "NOT A VALID CLASS","Oops",
+                                    JOptionPane.ERROR_MESSAGE);
                         }
                     } catch (InterruptedException e1) {
                         e1.printStackTrace();
                     } catch (ExecutionException e1) {
                         e1.printStackTrace();
+
                     }
                 }
-            };
+            }.execute();
         }
     }
 }

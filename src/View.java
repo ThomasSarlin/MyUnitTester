@@ -1,4 +1,3 @@
-package main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +41,6 @@ public class View {
         textArea = new JTextArea();
         textArea.setLineWrap(true);
         textArea.setEditable(false);
-        textArea.append("TJOSAN!");
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setPreferredSize(new Dimension(700,450));
         panel.add(scrollPane);
