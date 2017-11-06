@@ -25,18 +25,19 @@ public class Model {
         ArrayList<String> methodResults= new ArrayList<>();
         int successCount=0;
         int failCount=0;
+        int exceptionFailCount=0;
+
         tempClass=Class.forName(className).newInstance();
         methods=Class.forName(className).getMethods();
 
-        for (int i=0;i<methods.length;i++){
-            if(checkTestMethod(methods[i])){
+        for (Method m:methods){
+            if(checkTestMethod(m)){
                 Class.forName(className).getMethod("setUp")
                         .invoke(tempClass);
 
                 try {
-                    System.out.println(methods[i].getName());
-                    result = (boolean) methods[i].invoke(tempClass);
-                    methodResults.add(methods[i].getName());
+                    result = (boolean) m.invoke(tempClass);
+                    methodResults.add(m.getName());
                     if(result) {
                         methodResults.add(" SUCCESS\n");
                         successCount++;
@@ -45,10 +46,10 @@ public class Model {
                         methodResults.add(" FAIL\n");
                         failCount++;
                     }
-                }catch (NullPointerException e ){
-                    methodResults.add(" FAIL Generated a " + e.getClass());
                 }catch(InvocationTargetException e){
-                    System.out.println("Invocation shit");
+                    methodResults.add(m.getName() + " FAIL Generated "
+                            + e.getCause());
+                    exceptionFailCount++;
                 }
             }
         }
@@ -60,7 +61,9 @@ public class Model {
             System.out.println("No tearDown available");
             e.printStackTrace();
         }
-
+        methodResults.add("\n\nSuccessful tests: " + successCount
+                +"\nFailed tests: " + failCount
+                +"\nException generated fails: " + exceptionFailCount);
         return methodResults;
     }
 
