@@ -45,6 +45,4 @@ public class Test1 implements TestClass {
     public boolean testFailing() {
         return false;
     }
-
-
 }

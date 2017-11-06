@@ -6,11 +6,11 @@ public class OneMethodTest implements TestClass {
     public void tearDown() {
     }
 
-    public boolean returnFalse(){
+    public boolean testReturnFalse(){
         return false;
     }
 
-    public boolean returnTrue(){
+    public boolean testReturnTrue(){
         return true;
     }
 }

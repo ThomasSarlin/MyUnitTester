@@ -37,8 +37,10 @@ public class Controller {
 
                 @Override
                 protected ArrayList<String> doInBackground() throws Exception {
-                    return (model.checkTextField(view.textField.getText())
-                            ?model.runTest(view.textField.getText()):null);
+                    if(model.checkTextField(view.textField.getText()))
+                        return model.runTest(view.textField.getText());
+                    else
+                        return null;
                 }
 
                 @Override
