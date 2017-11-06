@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class View {
     JFrame frame;
@@ -41,6 +42,7 @@ public class View {
         textArea = new JTextArea();
         textArea.setLineWrap(true);
         textArea.setEditable(false);
+        textArea.append("TJOSAN!");
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setPreferredSize(new Dimension(700,450));
         panel.add(scrollPane);
@@ -53,5 +55,11 @@ public class View {
         panel.add(clearFieldButton);
 
         return panel;
+    }
+    public void addRunTestButtonAL(ActionListener listener){
+        runTestButton.addActionListener(listener);
+    }
+    public void addClearButtonAL(ActionListener listener){
+        clearFieldButton.addActionListener(listener);
     }
 }
