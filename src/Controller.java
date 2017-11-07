@@ -80,13 +80,17 @@ public class Controller {
     }
 
     /**
-     *
-     * @param strings
+     * Signals to View to append set strings.
+     * @param strings to be appended.
      */
     private void stringsToTextArea(ArrayList<String> strings) {
         for (String string : strings)
             view.getTextArea().append(string);
     }
+
+    /**
+     * called if said class is not an implementation of "TestClass.class"
+     */
     private void alertInvalidClass(){
         JOptionPane.showMessageDialog(view.getFrame()
                 ,view.getTextField().getText()
