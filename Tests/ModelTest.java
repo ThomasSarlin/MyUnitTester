@@ -19,13 +19,18 @@ public class ModelTest {
                 .checkTextField("FakeMethodTest"));
     }
     @Test
-    public void shouldReturnArrayWithStrings() throws IOException {
+    public void shouldReturnArrayList() throws IOException {
         Assert.assertTrue(new Model().runTest("OneMethodTest")
                 .getClass().equals(ArrayList.class));
     }
+    @Test
+    public void shouldReturnStringList() throws IOException {
+        Assert.assertTrue(new Model().runTest("OneMethodTest")
+                .get(0).getClass().equals(String.class));
+    }
 
     @Test
-    public void shouldIgnoreClassWithParameterConstructor(){
+    public void shouldIgnoreClassWithParamConstr(){
         Assert.assertFalse(
                 new Model().checkTextField("TestClassWithParameter"));
     }

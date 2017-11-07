@@ -1,6 +1,3 @@
-
-import com.sun.media.jfxmedia.logging.Logger;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,37 +9,65 @@ public class Model {
 
     public ArrayList<String> runTest(String className) throws IOException {
         this.className=className;
-        Method[] methods;
-        ArrayList<String> methodResults= new ArrayList<>();
-        try {
-            methods = Class.forName(className).getMethods();
-            Object tempClass=Class.forName(className).newInstance();
-            methodResults=runMethods(methods,tempClass);
-        } catch (ClassNotFoundException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method runTest");
-        } catch (IllegalAccessException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method runTest");
-        } catch (InstantiationException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method runTest");
-        }
-
-        return methodResults;
+        Method[] methods=initiateMethods();
+        Object classObject=instantiateClassObject();
+        Class<?> tempClass = initiateTempClass();
+        return (methods==null|classObject==null)
+                ?null:runMethods(methods,tempClass,classObject);
     }
 
-    private ArrayList<String> runMethods(Method[] methods, Object tempClass) {
+    private Method[] initiateMethods(){
+        try {
+            return Class.forName(className).getMethods();
+        } catch (ClassNotFoundException e) {
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method initateMethods");
+            return null;
+        }
+    }
+    private Object instantiateClassObject(){
+        try {
+
+            return Class.forName(className).newInstance();
+        } catch (ClassNotFoundException e) {
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method instantiateClass");
+            return null;
+        } catch (IllegalAccessException e) {
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method instantiateClass");
+            return null;
+        } catch (InstantiationException e) {
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method instantiateClass");
+            return null;
+        }
+    }
+
+    private Class<?> initiateTempClass(){
+        try {
+            return Class.forName(className);
+        } catch (ClassNotFoundException e) {
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method instantiateTempClass: "
+                    +className + ".class does not exist");
+            return null;
+        }
+    }
+
+    private ArrayList<String> runMethods(Method[] methods
+            ,Class<?> tempClass, Object classObject) {
+
         boolean result;
         ArrayList<String> methodResults=new ArrayList<>();
         int successCount=0,failCount=0,exceptionFailCount=0;
         for (Method m:methods){
             if(checkTestMethod(m)){
-                trySetUp(tempClass);
+                tryMethod("setUp",tempClass,classObject);
 
                 try {
                     methodResults.add(m.getName());
-                    result = (boolean) m.invoke(tempClass);
+                    result = (boolean) m.invoke(classObject);
                     if(result) {
                         methodResults.add(" SUCCESS\n");
                         successCount++;
@@ -51,17 +76,18 @@ public class Model {
                         methodResults.add(" FAIL\n");
                         failCount++;
                     }
-                }catch(InvocationTargetException e){
+                } catch(InvocationTargetException e){
                     methodResults.add(" FAIL Generated "
                             + e.getCause() +"\n");
                     exceptionFailCount++;
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    DebugLog.log(Level.WARNING,e.getCause()
+                            +" caught in method runMethods");
                 }
             }
         }
 
-        tryTearDown(tempClass);
+        tryMethod("tearDown",tempClass,classObject);
         if(methodResults.size()!=0)
             methodResults.add("\nSuccessful tests: " +successCount
                     +"\nFailed tests:" +failCount
@@ -72,59 +98,37 @@ public class Model {
         return methodResults;
     }
 
-    private void trySetUp(Object tempClass){
+    private void tryMethod(String method,Class<?> tempClass, Object classObject){
 
         try {
-            Class.forName(className).getMethod("setUp")
-                    .invoke(tempClass);
+            tempClass.getMethod(method)
+                    .invoke(classObject);
         } catch (IllegalAccessException e) {
             DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method trySetUp");
+                    +" caught in method tryMethod");
         } catch (InvocationTargetException e) {
             DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method trySetUp");
+                    +" caught in method tryMethod");
         } catch (NoSuchMethodException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method trySetUp");
-        } catch (ClassNotFoundException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method trySetUp");
+            DebugLog.log(Level.INFO,e.getCause()
+                    +" caught in method tryMethod"+": "
+                    +method+ " does not exist");
         }
     }
-
-    private void tryTearDown(Object tempClass){
-
-        try {
-            Class.forName(className).getMethod("tearDown")
-                    .invoke(tempClass);
-        } catch (NoSuchMethodException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method tryTearDown, no teardown available");
-        } catch (IllegalAccessException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method tryTearDown");
-        } catch (InvocationTargetException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method tryTearDown");
-        } catch (ClassNotFoundException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method tryTearDown");
-        }
-    }
-
 
     public boolean checkTextField(String className){
         try {
             return (TestClass.class.isAssignableFrom(Class.forName(className))
-                    &&Class.forName(className).getConstructor().getParameterCount()==0);
+                    &&Class.forName(className)
+                    .getConstructor().getParameterCount()==0);
         }
         catch (ClassNotFoundException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            DebugLog.log(Level.INFO,e.getCause()
                     +", invalid className: " +className);
             return false;
         } catch (NoSuchMethodException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
-                    +" caught in method checkTextField");
+            DebugLog.log(Level.INFO,e.getCause()
+                    +", caught in method checkTextField");
             return false;
         }
     }

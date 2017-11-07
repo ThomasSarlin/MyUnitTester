@@ -2,7 +2,7 @@
  * Class that represent incorrect format on test methods
  */
 
-public class TestClassWithoutTests {
+public class TestClassWithoutTests implements TestClass{
     public TestClassWithoutTests(){
 
     }

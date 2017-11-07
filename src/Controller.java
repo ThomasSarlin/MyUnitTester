@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
 
 public class Controller {
     View view;
@@ -58,11 +59,12 @@ public class Controller {
                                     ,"Oops",
                                     JOptionPane.ERROR_MESSAGE);
                         }
-                    } catch (InterruptedException e1) {
-                        e1.printStackTrace();
-                    } catch (ExecutionException e1) {
-                        e1.printStackTrace();
-
+                    } catch (InterruptedException e) {
+                        DebugLog.log(Level.WARNING,e.getCause()
+                                +"generated in method done");
+                    } catch (ExecutionException e) {
+                        DebugLog.log(Level.WARNING,e.getCause()
+                                +"generated in method done");
                     }
                 }
             }.execute();
