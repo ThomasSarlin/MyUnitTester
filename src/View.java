@@ -1,3 +1,7 @@
+/**
+ * Class Respnsibility: GUI
+ *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
+ */
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +22,10 @@ public class View {
         if(frame!=null)
             frame.setVisible(true);
     }
+
+    /**
+     * Assembly for JFrame
+     */
     private void setFrame(){
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -27,6 +35,11 @@ public class View {
         frame.add(setMiddlePanel(),BorderLayout.CENTER);
         frame.add(setBottomPanel(),BorderLayout.SOUTH);
     }
+
+    /**
+     * Assembly of top panel
+     * @return panel representing top row
+     */
     private JPanel setTopPanel(){
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -41,6 +54,11 @@ public class View {
 
         return panel;
     }
+
+    /**
+     * Assembly of middlePanel
+     * @return panel with a text-area
+     */
     private JPanel setMiddlePanel(){
         JPanel panel = new JPanel();
         panel.setBackground(Color.darkGray);
@@ -52,6 +70,10 @@ public class View {
         panel.add(scrollPane);
         return panel;
     }
+
+    /**
+     * @return panel with a clear button
+     */
     private JPanel setBottomPanel(){
         JPanel panel = new JPanel();
         panel.setBackground(Color.darkGray);
@@ -61,9 +83,18 @@ public class View {
 
         return panel;
     }
+
+    /**
+     * @param listener representing where to send information of button clicks.
+     */
     public void addRunTestButtonAL(ActionListener listener){
         runTestButton.addActionListener(listener);
     }
+
+    /**
+     * @param listener representing where to send information of button clicks.
+     */
+
     public void addClearButtonAL(ActionListener listener){
         clearFieldButton.addActionListener(listener);
     }

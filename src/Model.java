@@ -20,7 +20,7 @@ public class Model {
         try {
             return Class.forName(className).getMethods();
         } catch (ClassNotFoundException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            Debug.log(Level.WARNING,e.getCause()
                     +" caught in method initateMethods");
             return null;
         }
@@ -30,15 +30,15 @@ public class Model {
 
             return Class.forName(className).newInstance();
         } catch (ClassNotFoundException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            Debug.log(Level.WARNING,e.getCause()
                     +" caught in method instantiateClass");
             return null;
         } catch (IllegalAccessException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            Debug.log(Level.WARNING,e.getCause()
                     +" caught in method instantiateClass");
             return null;
         } catch (InstantiationException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            Debug.log(Level.WARNING,e.getCause()
                     +" caught in method instantiateClass");
             return null;
         }
@@ -48,7 +48,7 @@ public class Model {
         try {
             return Class.forName(className);
         } catch (ClassNotFoundException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            Debug.log(Level.WARNING,e.getCause()
                     +" caught in method instantiateTempClass: "
                     +className + ".class does not exist");
             return null;
@@ -81,7 +81,7 @@ public class Model {
                             + e.getCause() +"\n");
                     exceptionFailCount++;
                 } catch (IllegalAccessException e) {
-                    DebugLog.log(Level.WARNING,e.getCause()
+                    Debug.log(Level.WARNING,e.getCause()
                             +" caught in method runMethods");
                 }
             }
@@ -104,13 +104,13 @@ public class Model {
             tempClass.getMethod(method)
                     .invoke(classObject);
         } catch (IllegalAccessException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            Debug.log(Level.WARNING,e.getCause()
                     +" caught in method tryMethod");
         } catch (InvocationTargetException e) {
-            DebugLog.log(Level.WARNING,e.getCause()
+            Debug.log(Level.WARNING,e.getCause()
                     +" caught in method tryMethod");
         } catch (NoSuchMethodException e) {
-            DebugLog.log(Level.INFO,e.getCause()
+            Debug.log(Level.INFO,e.getCause()
                     +" caught in method tryMethod"+": "
                     +method+ " does not exist");
         }
@@ -123,11 +123,11 @@ public class Model {
                     .getConstructor().getParameterCount()==0);
         }
         catch (ClassNotFoundException e) {
-            DebugLog.log(Level.INFO,e.getCause()
+            Debug.log(Level.INFO,e.getCause()
                     +", invalid className: " +className);
             return false;
         } catch (NoSuchMethodException e) {
-            DebugLog.log(Level.INFO,e.getCause()
+            Debug.log(Level.INFO,e.getCause()
                     +", caught in method checkTextField");
             return false;
         }

@@ -60,10 +60,10 @@ public class Controller {
                                     JOptionPane.ERROR_MESSAGE);
                         }
                     } catch (InterruptedException e) {
-                        DebugLog.log(Level.WARNING,e.getCause()
+                        Debug.log(Level.WARNING,e.getCause()
                                 +"generated in method done");
                     } catch (ExecutionException e) {
-                        DebugLog.log(Level.WARNING,e.getCause()
+                        Debug.log(Level.WARNING,e.getCause()
                                 +"generated in method done");
                     }
                 }

@@ -1,20 +1,19 @@
 /**
- * Class Respnsibility: Logging
+ * Class Responsibility: Logging
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
 
 import java.io.IOException;
 import java.util.logging.*;
 
-public class DebugLog {
+public class Debug {
     static Logger logger;
     public Handler fileHandler;
 
     /**
      * Handles the initiation of the Logger, specifies output file aswell.
-     * @throws IOException if unable to create file or write to file.
      */
-    public DebugLog() throws IOException {
+    public Debug() throws IOException {
         logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         logger.setLevel(Level.INFO);
         fileHandler = new FileHandler("log.txt");
@@ -23,8 +22,14 @@ public class DebugLog {
         logger.addHandler(fileHandler);
     }
 
-    private static Logger getLogger() throws IOException {
-        if(logger == null)new DebugLog();
+    private static Logger getLogger(){
+        if(logger == null) {
+            try {
+                new Debug();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         return logger;
     }
 
@@ -33,7 +38,7 @@ public class DebugLog {
      * @param level - Level of "threat"
      * @param msg - Message to be logged.
      */
-    public static void log(Level level, String msg) throws IOException {
+    public static void log(Level level, String msg){
         getLogger().log(level, msg);
     }
 }
