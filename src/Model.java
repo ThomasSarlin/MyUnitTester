@@ -56,9 +56,13 @@ public class Model {
         }
 
         tryTearDown(tempClass);
-        methodResults.add("\nSuccessful tests: " +successCount
-                +"\nFailed tests:" +failCount
-                +"\nFailed tests with Exception thrown: "+ exceptionFailCount);
+        if(methodResults.size()!=0)
+            methodResults.add("\nSuccessful tests: " +successCount
+                    +"\nFailed tests:" +failCount
+                    +"\nFailed tests with Exception thrown: "
+                    + exceptionFailCount);
+        else
+            methodResults.add("No tests available");
         return methodResults;
     }
 

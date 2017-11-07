@@ -1,7 +1,5 @@
 import org.junit.Test;
 import org.junit.Assert;
-
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 public class ModelTest {
@@ -19,15 +17,20 @@ public class ModelTest {
                 .checkTextField("FakeMethodTest"));
     }
     @Test
-    public void shouldReturnArrayWithStrings() throws ClassNotFoundException,
-            InstantiationException, IllegalAccessException,
-            InvocationTargetException, NoSuchMethodException {
+    public void shouldReturnArrayWithStrings() {
         Assert.assertTrue(new Model().runTest("OneMethodTest")
                 .getClass().equals(ArrayList.class));
     }
 
     @Test
-    public void shouldBeAbleToInitializeClass(){
-        Model model = new Model();
+    public void shouldIgnoreClassWithParameterConstructor(){
+        Assert.assertFalse(
+                new Model().checkTextField("TestClassWithParameter"));
+    }
+
+    @Test
+    public void shouldIndicateNoTestsAvailable(){
+        Assert.assertTrue(new Model().runTest("TestClassWithoutTests")
+                .get(0).equals("No tests available"));
     }
 }
