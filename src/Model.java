@@ -1,6 +1,8 @@
+/**
+ * Class Responsibility: Model, implement the UnitTest.
+ *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
+ */
 
-
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -9,15 +11,26 @@ import java.util.logging.Level;
 public class Model {
     private String className;
 
-    public ArrayList<String> runTest(String className) throws IOException {
+    /**
+     * Main function of model, invokes methods of given class
+     * and returns a test result.
+     * @param className - name of Class
+     * @return ArrayList representing result from tests
+     * or null if error has occurred.
+     */
+
+    public ArrayList<String> runTest(String className){
         this.className=className;
         Method[] methods=initiateMethods();
         Object classObject=instantiateClassObject();
         Class<?> tempClass = initiateTempClass();
-        return (methods==null|classObject==null)
-                ?null:runMethods(methods,tempClass,classObject);
+        return (methods==null|classObject==null|tempClass==null)
+                ?null: InvokeMethods(methods,tempClass,classObject);
     }
 
+    /**
+     * @return methods represented in class from className
+     */
     private Method[] initiateMethods(){
         try {
             return Class.forName(className).getMethods();
@@ -27,6 +40,10 @@ public class Model {
             return null;
         }
     }
+
+    /**
+     * @return Object representing given Class from className
+     */
     private Object instantiateClassObject(){
         try {
 
@@ -39,6 +56,9 @@ public class Model {
         }
     }
 
+    /**
+     * @return initiated Class from given className
+     */
     private Class<?> initiateTempClass(){
         try {
             return Class.forName(className);
@@ -50,8 +70,16 @@ public class Model {
         }
     }
 
-    private ArrayList<String> runMethods(Method[] methods
-            ,Class<?> tempClass, Object classObject) {
+    /**
+     * Invokes each method in the specified class which fills the requirements
+     * (name starts with "test", 0 parameters, returns boolean)
+     * @param methods - all methods of corresponding class
+     * @param tempClass - Class which contains methods (Reflection)
+     * @param classObject - Instantiated object of said class
+     * @return ArrayList representing the data from the invocations.
+     */
+    private ArrayList<String> InvokeMethods(Method[] methods
+            , Class<?> tempClass, Object classObject) {
 
         boolean result;
         ArrayList<String> methodResults=new ArrayList<>();
@@ -90,7 +118,15 @@ public class Model {
         return methodResults;
     }
 
-    private void tryMethod(String method,Class<?> tempClass, Object classObject){
+    /**
+     * Tries to run a specified Method from
+     * a specified class on a specific Object
+     * @param method - Method to run
+     * @param tempClass - Class which has method
+     * @param classObject - Instance of Object(should be of class tempClass)
+     */
+    private void tryMethod(String method,Class<?> tempClass
+            , Object classObject){
 
         try {
             tempClass.getMethod(method)
@@ -103,7 +139,13 @@ public class Model {
         }
     }
 
-    public boolean checkTextField(String className){
+    /**
+     * Checks if class by the name "className" implements TestClass.class
+     * @param className name of class to be checked
+     * @return if class is implementation of TestClass
+     */
+
+    public boolean checkClass(String className){
         try {
             return (TestClass.class.isAssignableFrom(Class.forName(className))
                     &&Class.forName(className)
@@ -111,11 +153,17 @@ public class Model {
         }
         catch (ClassNotFoundException | NoSuchMethodException e) {
             Debug.log(Level.INFO,e.getCause()
-                    +" caught in method checkTextField");
+                    +" caught in method checkClass");
             return false;
         }
     }
 
+    /**
+     * Checks if method name starts with "test"
+     * , has 0 parameters and returns a boolean
+     * @param m method to be checked
+     * @return if correct format
+     */
     private boolean checkTestMethod(Method m){
         return(m.getName().substring(0,4).equals("test")
                 &&m.getParameterCount()==0

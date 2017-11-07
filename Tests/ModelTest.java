@@ -1,3 +1,8 @@
+/**
+ * JUnit test for Model.
+ * @Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
+ */
+
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -11,12 +16,12 @@ public class ModelTest {
     }
     @Test
     public void shouldIdentifyTestClass(){
-        Assert.assertTrue(new Model().checkTextField("OneMethodTest"));
+        Assert.assertTrue(new Model().checkClass("OneMethodTest"));
     }
     @Test
     public void shouldIdentifyInvalidTestClass(){
         Assert.assertFalse(new Model()
-                .checkTextField("FakeMethodTest"));
+                .checkClass("FakeMethodTest"));
     }
     @Test
     public void shouldReturnArrayList() throws IOException {
@@ -32,7 +37,7 @@ public class ModelTest {
     @Test
     public void shouldIgnoreClassWithParamConstr(){
         Assert.assertFalse(
-                new Model().checkTextField("TestClassWithParameter"));
+                new Model().checkClass("TestClassWithParameter"));
     }
 
     @Test

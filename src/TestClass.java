@@ -1,5 +1,1 @@
-
-
-public interface TestClass {
-
-}
+public interface TestClass { }

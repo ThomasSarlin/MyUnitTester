@@ -1,5 +1,5 @@
 /**
- * Class that represent incorrect format on test methods
+ * Class that represent incorrect format of test methods
  */
 
 public class TestClassWithoutTests implements TestClass{

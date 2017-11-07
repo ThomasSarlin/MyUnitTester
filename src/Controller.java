@@ -1,12 +1,11 @@
 /**
- * Class Respnsibility: Controller, communication between Model & View
+ * Class Responsibility: Controller, communication between Model & View
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -17,9 +16,8 @@ public class Controller {
 
     /**
      * Initiation method for Controller, Model and View.
-     * @throws IOException
      */
-    public void run() throws IOException {
+    public void run(){
         model = new Model();
 
         SwingUtilities.invokeLater(new Runnable(){
@@ -58,7 +56,7 @@ public class Controller {
 
                 @Override
                 protected ArrayList<String> doInBackground() throws Exception {
-                    return(model.checkTextField(view.getTextField().getText())
+                    return(model.checkClass(view.getTextField().getText())
                             ?model.runTest(view.getTextField().getText()):null);
                 }
 
