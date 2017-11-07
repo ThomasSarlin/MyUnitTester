@@ -30,7 +30,9 @@ public class View {
     private JPanel setTopPanel(){
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel.setBackground(Color.darkGray);
         JLabel label = new JLabel("TestClass name:");
+        label.setForeground(Color.white);
         textField = new JTextField(12);
         panel.add(label);
         panel.add(textField);
@@ -41,6 +43,7 @@ public class View {
     }
     private JPanel setMiddlePanel(){
         JPanel panel = new JPanel();
+        panel.setBackground(Color.darkGray);
         textArea = new JTextArea();
         textArea.setLineWrap(true);
         textArea.setEditable(false);
@@ -51,6 +54,7 @@ public class View {
     }
     private JPanel setBottomPanel(){
         JPanel panel = new JPanel();
+        panel.setBackground(Color.darkGray);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
         clearFieldButton = new JButton("Clear");
         panel.add(clearFieldButton);

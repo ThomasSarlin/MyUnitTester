@@ -1,14 +1,17 @@
 
+import com.sun.media.jfxmedia.logging.Logger;
+
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 public class Model {
     private String className;
 
-    public ArrayList<String> runTest(String className){
+    public ArrayList<String> runTest(String className) throws IOException {
         this.className=className;
-
         Method[] methods;
         ArrayList<String> methodResults= new ArrayList<>();
         try {
@@ -16,11 +19,14 @@ public class Model {
             Object tempClass=Class.forName(className).newInstance();
             methodResults=runMethods(methods,tempClass);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method runTest");
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method runTest");
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method runTest");
         }
 
         return methodResults;
@@ -72,13 +78,17 @@ public class Model {
             Class.forName(className).getMethod("setUp")
                     .invoke(tempClass);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method trySetUp");
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method trySetUp");
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method trySetUp");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method trySetUp");
         }
     }
 
@@ -88,14 +98,17 @@ public class Model {
             Class.forName(className).getMethod("tearDown")
                     .invoke(tempClass);
         } catch (NoSuchMethodException e) {
-            System.out.println("No tearDown available");
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method tryTearDown, no teardown available");
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method tryTearDown");
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method tryTearDown");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method tryTearDown");
         }
     }
 
@@ -105,9 +118,13 @@ public class Model {
             return (TestClass.class.isAssignableFrom(Class.forName(className))
                     &&Class.forName(className).getConstructor().getParameterCount()==0);
         }
-        catch (ClassNotFoundException e1) {
+        catch (ClassNotFoundException e) {
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +", invalid className: " +className);
             return false;
         } catch (NoSuchMethodException e) {
+            DebugLog.log(Level.WARNING,e.getCause()
+                    +" caught in method checkTextField");
             return false;
         }
     }

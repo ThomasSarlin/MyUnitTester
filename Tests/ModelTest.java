@@ -1,5 +1,7 @@
 import org.junit.Test;
 import org.junit.Assert;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ModelTest {
@@ -17,7 +19,7 @@ public class ModelTest {
                 .checkTextField("FakeMethodTest"));
     }
     @Test
-    public void shouldReturnArrayWithStrings() {
+    public void shouldReturnArrayWithStrings() throws IOException {
         Assert.assertTrue(new Model().runTest("OneMethodTest")
                 .getClass().equals(ArrayList.class));
     }
@@ -29,7 +31,7 @@ public class ModelTest {
     }
 
     @Test
-    public void shouldIndicateNoTestsAvailable(){
+    public void shouldIndicateNoTestsAvailable() throws IOException {
         Assert.assertTrue(new Model().runTest("TestClassWithoutTests")
                 .get(0).equals("No tests available"));
     }

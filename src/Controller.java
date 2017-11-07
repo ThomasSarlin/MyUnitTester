@@ -1,8 +1,7 @@
-
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -10,8 +9,9 @@ public class Controller {
     View view;
     Model model;
 
-    public void run(){
+    public void run() throws IOException {
         model = new Model();
+
         SwingUtilities.invokeLater(new Runnable(){
             @Override
             public void run(){
@@ -47,13 +47,15 @@ public class Controller {
                     try {
                         if(get()!=null) {
                             ArrayList<String> strings = get();
-                            view.textArea.setText("");
+
                             for (String string : strings) {
                                 view.textArea.append(string);
                             }
                         }else{
                             JOptionPane.showMessageDialog(view.frame,
-                                    "NOT A VALID CLASS","Oops",
+                                    view.textField.getText()
+                                            + " does not implement TestClass"
+                                    ,"Oops",
                                     JOptionPane.ERROR_MESSAGE);
                         }
                     } catch (InterruptedException e1) {
