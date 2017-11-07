@@ -115,10 +115,7 @@ public class Model {
     }
 
     private boolean checkTestMethod(Method m){
-        return(m.getName().charAt(0)=='t'
-                &&m.getName().charAt(1)=='e'
-                &&m.getName().charAt(2)=='s'
-                &&m.getName().charAt(3)=='t'
+        return(m.getName().substring(0,4).equals("test")
                 &&m.getParameterCount()==0
                 &&m.getReturnType().toString().equals("boolean"));
     }
