@@ -5,10 +5,11 @@ import java.awt.event.ActionListener;
 
 public class View {
     JFrame frame;
-    JButton runTestButton;
-    JButton clearFieldButton;
+    private JButton runTestButton;
+    private JButton clearFieldButton;
     JTextArea textArea;
     JTextField textField;
+
     public View(){
         setFrame();
     }
@@ -20,7 +21,7 @@ public class View {
     private void setFrame(){
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(800,600));
+        frame.setSize(new Dimension(480,272));
         frame.setLayout(new BorderLayout());
         frame.add(setTopPanel(),BorderLayout.NORTH);
         frame.add(setMiddlePanel(),BorderLayout.CENTER);
@@ -29,9 +30,11 @@ public class View {
     private JPanel setTopPanel(){
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        JLabel label = new JLabel("TestClass name:");
         textField = new JTextField(12);
+        panel.add(label);
         panel.add(textField);
-        runTestButton = new JButton("Run test");
+        runTestButton = new JButton("Run tests");
         panel.add(runTestButton);
 
         return panel;
@@ -42,7 +45,7 @@ public class View {
         textArea.setLineWrap(true);
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
-        scrollPane.setPreferredSize(new Dimension(700,450));
+        scrollPane.setPreferredSize(new Dimension(440,140));
         panel.add(scrollPane);
         return panel;
     }

@@ -1,11 +1,11 @@
 
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class Model {
-    String className;
+    private String className;
+
     public ArrayList<String> runTest(String className){
         this.className=className;
 
@@ -35,8 +35,8 @@ public class Model {
                 trySetUp(tempClass);
 
                 try {
-                    result = (boolean) m.invoke(tempClass);
                     methodResults.add(m.getName());
+                    result = (boolean) m.invoke(tempClass);
                     if(result) {
                         methodResults.add(" SUCCESS\n");
                         successCount++;
@@ -46,8 +46,8 @@ public class Model {
                         failCount++;
                     }
                 }catch(InvocationTargetException e){
-                    methodResults.add(m.getName() + " FAIL Generated "
-                            + e.getCause());
+                    methodResults.add(" FAIL Generated "
+                            + e.getCause() +"\n");
                     exceptionFailCount++;
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -56,7 +56,7 @@ public class Model {
         }
 
         tryTearDown(tempClass);
-        methodResults.add("\n\n\nSuccessful tests: " +successCount
+        methodResults.add("\nSuccessful tests: " +successCount
                 +"\nFailed tests:" +failCount
                 +"\nFailed tests with Exception thrown: "+ exceptionFailCount);
         return methodResults;
@@ -98,9 +98,12 @@ public class Model {
 
     public boolean checkTextField(String className){
         try {
-            return TestClass.class.isAssignableFrom(Class.forName(className));
+            return (TestClass.class.isAssignableFrom(Class.forName(className))
+                    &&Class.forName(className).getConstructor().getParameterCount()==0);
         }
         catch (ClassNotFoundException e1) {
+            return false;
+        } catch (NoSuchMethodException e) {
             return false;
         }
     }

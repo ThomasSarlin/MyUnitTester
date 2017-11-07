@@ -30,6 +30,7 @@ public class Controller {
             view.textArea.setText("");
         }
     }
+
     public class RunTestActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -37,10 +38,8 @@ public class Controller {
 
                 @Override
                 protected ArrayList<String> doInBackground() throws Exception {
-                    if(model.checkTextField(view.textField.getText()))
-                        return model.runTest(view.textField.getText());
-                    else
-                        return null;
+                    return(model.checkTextField(view.textField.getText())
+                            ?model.runTest(view.textField.getText()):null);
                 }
 
                 @Override
