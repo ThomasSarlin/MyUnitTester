@@ -29,15 +29,8 @@ public class Model {
         try {
 
             return Class.forName(className).newInstance();
-        } catch (ClassNotFoundException e) {
-            Debug.log(Level.WARNING,e.getCause()
-                    +" caught in method instantiateClass");
-            return null;
-        } catch (IllegalAccessException e) {
-            Debug.log(Level.WARNING,e.getCause()
-                    +" caught in method instantiateClass");
-            return null;
-        } catch (InstantiationException e) {
+        } catch (ClassNotFoundException | IllegalAccessException
+                | InstantiationException e) {
             Debug.log(Level.WARNING,e.getCause()
                     +" caught in method instantiateClass");
             return null;
@@ -76,13 +69,10 @@ public class Model {
                         methodResults.add(" FAIL\n");
                         failCount++;
                     }
-                } catch(InvocationTargetException e){
+                } catch(InvocationTargetException | IllegalAccessException e){
                     methodResults.add(" FAIL Generated "
                             + e.getCause() +"\n");
                     exceptionFailCount++;
-                } catch (IllegalAccessException e) {
-                    Debug.log(Level.WARNING,e.getCause()
-                            +" caught in method runMethods");
                 }
             }
         }
@@ -103,16 +93,11 @@ public class Model {
         try {
             tempClass.getMethod(method)
                     .invoke(classObject);
-        } catch (IllegalAccessException e) {
+
+        } catch (NoSuchMethodException | IllegalAccessException
+                | InvocationTargetException e) {
             Debug.log(Level.WARNING,e.getCause()
                     +" caught in method tryMethod");
-        } catch (InvocationTargetException e) {
-            Debug.log(Level.WARNING,e.getCause()
-                    +" caught in method tryMethod");
-        } catch (NoSuchMethodException e) {
-            Debug.log(Level.INFO,e.getCause()
-                    +" caught in method tryMethod"+": "
-                    +method+ " does not exist");
         }
     }
 
@@ -122,13 +107,9 @@ public class Model {
                     &&Class.forName(className)
                     .getConstructor().getParameterCount()==0);
         }
-        catch (ClassNotFoundException e) {
+        catch (ClassNotFoundException | NoSuchMethodException e) {
             Debug.log(Level.INFO,e.getCause()
-                    +", invalid className: " +className);
-            return false;
-        } catch (NoSuchMethodException e) {
-            Debug.log(Level.INFO,e.getCause()
-                    +", caught in method checkTextField");
+                    +" caught in method checkTextField");
             return false;
         }
     }

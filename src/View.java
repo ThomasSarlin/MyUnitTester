@@ -8,11 +8,11 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class View {
-    JFrame frame;
+    private JFrame frame;
     private JButton runTestButton;
     private JButton clearFieldButton;
-    JTextArea textArea;
-    JTextField textField;
+    private JTextArea textArea;
+    private JTextField textField;
 
     public View(){
         setFrame();
@@ -97,5 +97,17 @@ public class View {
 
     public void addClearButtonAL(ActionListener listener){
         clearFieldButton.addActionListener(listener);
+    }
+
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+    public JTextField getTextField() {
+        return textField;
+    }
+
+    public JFrame getFrame() {
+        return frame;
     }
 }

@@ -1,3 +1,8 @@
+/**
+ * Class Respnsibility: Controller, communication between Model & View
+ *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
+ */
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +15,10 @@ public class Controller {
     View view;
     Model model;
 
+    /**
+     * Initiation method for Controller, Model and View.
+     * @throws IOException
+     */
     public void run() throws IOException {
         model = new Model();
 
@@ -24,14 +33,24 @@ public class Controller {
         });
     }
 
-
+    /**
+     * Communicates what should happen in case "Clear" button is pressed
+     * Clears the textArea in MiddlePane.
+     */
     public class ClearActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.textArea.setText("");
+            view.getTextArea().setText("");
         }
     }
 
+    /**
+     * Starts a separate SwingWorker with the assignment to
+     * check if the class specified is of "TestClass" if yes,
+     * initiate the test in Model.
+     *
+     * When test is done, display result in textArea.
+     */
     public class RunTestActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -39,36 +58,40 @@ public class Controller {
 
                 @Override
                 protected ArrayList<String> doInBackground() throws Exception {
-                    return(model.checkTextField(view.textField.getText())
-                            ?model.runTest(view.textField.getText()):null);
+                    return(model.checkTextField(view.getTextField().getText())
+                            ?model.runTest(view.getTextField().getText()):null);
                 }
 
                 @Override
                 protected void done() {
                     try {
-                        if(get()!=null) {
-                            ArrayList<String> strings = get();
-
-                            for (String string : strings) {
-                                view.textArea.append(string);
-                            }
-                        }else{
-                            JOptionPane.showMessageDialog(view.frame,
-                                    view.textField.getText()
-                                            + " does not implement TestClass"
-                                    ,"Oops",
-                                    JOptionPane.ERROR_MESSAGE);
+                        ArrayList<String> strings=get();
+                        if(strings!=null)
+                            stringsToTextArea(strings);
+                        else
+                            alertInvalidClass();
+                    }  catch (InterruptedException | ExecutionException e) {
+                            Debug.log(Level.WARNING,e.getCause()
+                                    +"generated in method done");
                         }
-                    } catch (InterruptedException e) {
-                        Debug.log(Level.WARNING,e.getCause()
-                                +"generated in method done");
-                    } catch (ExecutionException e) {
-                        Debug.log(Level.WARNING,e.getCause()
-                                +"generated in method done");
-                    }
                 }
             }.execute();
         }
+    }
+
+    /**
+     *
+     * @param strings
+     */
+    private void stringsToTextArea(ArrayList<String> strings) {
+        for (String string : strings)
+            view.getTextArea().append(string);
+    }
+    private void alertInvalidClass(){
+        JOptionPane.showMessageDialog(view.getFrame()
+                ,view.getTextField().getText()
+                        + " does not implement TestClass", "Oops",
+                JOptionPane.ERROR_MESSAGE);
     }
 }
 
