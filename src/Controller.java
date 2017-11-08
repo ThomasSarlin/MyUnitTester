@@ -1,8 +1,7 @@
 /**
  * Class Responsibility: Controller, communication between Model & View
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
- */
-
+*/
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +25,7 @@ public class Controller {
                 view = new View();
                 view.addClearButtonAL(new ClearActionListener());
                 view.addRunTestButtonAL(new RunTestActionListener());
+                view.addComboBoxListener(new ComboBoxListener());
                 view.show();
             }
         });
@@ -38,7 +38,7 @@ public class Controller {
     public class ClearActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.getTextArea().setText("");
+            view.clearTextArea();
         }
     }
 
@@ -56,8 +56,7 @@ public class Controller {
 
                 @Override
                 protected ArrayList<String> doInBackground() throws Exception {
-                    return(model.checkClass(view.getTextField().getText())
-                            ?model.runTest(view.getTextField().getText()):null);
+                    return model.initiateTest(view.getTextField().getText());
                 }
 
                 @Override
@@ -65,9 +64,9 @@ public class Controller {
                     try {
                         ArrayList<String> strings=get();
                         if(strings!=null)
-                            stringsToTextArea(strings);
+                            view.stringsToTextArea(strings);
                         else
-                            alertInvalidClass();
+                            view.alertInvalidClass();
                     }  catch (InterruptedException | ExecutionException e) {
                             Debug.log(Level.WARNING,e.getCause()
                                     +"generated in method done");
@@ -77,23 +76,12 @@ public class Controller {
         }
     }
 
-    /**
-     * Signals to View to append set strings.
-     * @param strings to be appended.
-     */
-    private void stringsToTextArea(ArrayList<String> strings) {
-        for (String string : strings)
-            view.getTextArea().append(string);
-    }
+    public class ComboBoxListener implements ActionListener{
 
-    /**
-     * called if said class is not an implementation of "TestClass.class"
-     */
-    private void alertInvalidClass(){
-        JOptionPane.showMessageDialog(view.getFrame()
-                ,view.getTextField().getText()
-                        + " does not implement TestClass", "Oops",
-                JOptionPane.ERROR_MESSAGE);
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            view.setTextSize();
+        }
     }
 }
 

@@ -1,3 +1,4 @@
+
 /**
  * TestClass called in GUI to test if SwingWorker works as intended.
  */

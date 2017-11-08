@@ -1,8 +1,10 @@
+
+
 /**
  * Class that represent incorrect format of test methods
  */
 
-public class TestClassWithoutTests implements TestClass{
+public class TestClassWithoutTests implements TestClass {
     public TestClassWithoutTests(){
 
     }

@@ -1,3 +1,4 @@
+
 /**
  * Class Responsibility: Model, implement the UnitTest.
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
@@ -12,20 +13,29 @@ public class Model {
     private String className;
 
     /**
-     * Main function of model, invokes methods of given class
+     * @param className
+     * @return list of method results or
+     * null if class doesn't implement TestClass.class or
+     * if an exception is caught, specified in log.
+     */
+    public ArrayList<String> initiateTest(String className){
+        return(checkClass(className)?runTest(className):null);
+    }
+
+    /**
+     * Main method of model, invokes methods of given class
      * and returns a test result.
      * @param className - name of Class
      * @return ArrayList representing result from tests
      * or null if error has occurred.
      */
-
-    public ArrayList<String> runTest(String className){
+    private ArrayList<String> runTest(String className){
         this.className=className;
         Method[] methods=initiateMethods();
         Object classObject=instantiateClassObject();
         Class<?> tempClass = initiateTempClass();
         return (methods==null|classObject==null|tempClass==null)
-                ?null: InvokeMethods(methods,tempClass,classObject);
+                ? null: InvokeMethods(methods,tempClass,classObject);
     }
 
     /**
@@ -145,7 +155,7 @@ public class Model {
      * @return if class is implementation of TestClass
      */
 
-    public boolean checkClass(String className){
+    boolean checkClass(String className){
         try {
             return (TestClass.class.isAssignableFrom(Class.forName(className))
                     &&Class.forName(className)

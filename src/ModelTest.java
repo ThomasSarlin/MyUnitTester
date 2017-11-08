@@ -25,12 +25,12 @@ public class ModelTest {
     }
     @Test
     public void shouldReturnArrayList() throws IOException {
-        Assert.assertTrue(new Model().runTest("OneMethodTest")
+        Assert.assertTrue(new Model().initiateTest("OneMethodTest")
                 .getClass().equals(ArrayList.class));
     }
     @Test
     public void shouldReturnStringList() throws IOException {
-        Assert.assertTrue(new Model().runTest("OneMethodTest")
+        Assert.assertTrue(new Model().initiateTest("OneMethodTest")
                 .get(0).getClass().equals(String.class));
     }
 
@@ -42,7 +42,7 @@ public class ModelTest {
 
     @Test
     public void shouldIndicateNoTestsAvailable() throws IOException {
-        Assert.assertTrue(new Model().runTest("TestClassWithoutTests")
+        Assert.assertTrue(new Model().initiateTest("TestClassWithoutTests")
                 .get(0).equals("No tests available"));
     }
 }

@@ -1,3 +1,4 @@
+
 public class OneMethodTest implements TestClass {
 
     public void setUp() {
