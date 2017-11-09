@@ -1,4 +1,4 @@
-package Controller; /**
+package Model; /**
  * Class Responsibility: Logging
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */

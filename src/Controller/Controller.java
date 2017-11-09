@@ -2,8 +2,9 @@ package Controller; /**
  * Class Responsibility: Controller.Controller, communication between Model.Model & View.View
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
 */
+import Model.Debug;
 import Model.Model;
-import View.*;
+import View.View;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -56,8 +57,17 @@ public class Controller {
             new SwingWorker<ArrayList<String>,Object>(){
 
                 @Override
-                protected ArrayList<String> doInBackground() throws Exception {
-                    return model.initiateTest(view.getTextField().getText());
+                protected ArrayList<String> doInBackground(){
+                    ArrayList <String> result=null;
+                    try {
+                        result= model.initiateTest
+                                (view.getTextField().getText());
+                    } catch (ClassNotFoundException e) {
+                        Debug.log(Level.INFO, e.getMessage()
+                                + " Class" + view.getTextField().getText()
+                                + " invalid or non-exsisting.");
+                    }
+                    return result;
                 }
 
                 @Override

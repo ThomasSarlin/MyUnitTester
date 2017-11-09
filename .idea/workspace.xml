@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5690fcd6-5abc-4edd-af98-ef230f9b8593" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/helpMethods.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ModelTest.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tests/MyInt.java" afterPath="$PROJECT_DIR$/src/Tests/MyInt.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tests/OneMethodTest.java" afterPath="$PROJECT_DIR$/src/Tests/OneMethodTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tests/Test1.java" afterPath="$PROJECT_DIR$/src/Tests/Test1.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tests/TestClassWait.java" afterPath="$PROJECT_DIR$/src/Tests/TestClassWait.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tests/TestClassWithParameter.java" afterPath="$PROJECT_DIR$/src/Tests/TestClassWithParameter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Tests/TestClassWithoutTests.java" afterPath="$PROJECT_DIR$/src/Tests/TestClassWithoutTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controller.java" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Debug.java" afterPath="$PROJECT_DIR$/src/Controller/Debug.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Model.java" afterPath="$PROJECT_DIR$/src/Model/Model.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/TestClass.java" afterPath="$PROJECT_DIR$/src/Model/TestClass.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/View.java" afterPath="$PROJECT_DIR$/src/View/View.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/HelpModelTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Controller/Debug.java" afterPath="$PROJECT_DIR$/src/Model/Debug.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Model/helpMethods.java" afterPath="$PROJECT_DIR$/src/Model/HelpMethods.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MyUnitTester.java" afterPath="$PROJECT_DIR$/src/MyUnitTester.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Controller.java" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Model.java" afterPath="$PROJECT_DIR$/src/Model/Model.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +25,8 @@
       <file leaf-file-name="ModelTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ModelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-81">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="344">
+              <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +34,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HelpModelTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/HelpModelTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2581">
+              <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestClassWithoutTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tests/TestClassWithoutTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OneMethodTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tests/OneMethodTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="170" column="4" lean-forward="true" selection-start-line="170" selection-start-column="4" selection-end-line="180" selection-end-column="5" />
+            <state relative-caret-position="245">
+              <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,12 +76,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helpMethods.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/helpMethods.java">
+      <file leaf-file-name="HelpMethods.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/HelpMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="219">
+              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,52 +98,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tests/Test1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestClassWait.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tests/TestClassWait.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestClassWithoutTests.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tests/TestClassWithoutTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestClassWithParameter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tests/TestClassWithParameter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="-256">
+              <caret line="67" column="64" lean-forward="false" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Debug.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Debug.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,7 +125,7 @@
       <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="1425">
               <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -170,7 +167,6 @@
         <option value="$PROJECT_DIR$/src/DebugLog.java" />
         <option value="$PROJECT_DIR$/Tests/ModelTest.java" />
         <option value="$PROJECT_DIR$/src/Models/Model.java" />
-        <option value="$PROJECT_DIR$/src/Model/Debug.java" />
         <option value="$PROJECT_DIR$/src/Model.java" />
         <option value="$PROJECT_DIR$/src/TestClass.java" />
         <option value="$PROJECT_DIR$/src/ModelTest.java" />
@@ -184,13 +180,17 @@
         <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/Controller/Debug.java" />
         <option value="$PROJECT_DIR$/src/Model/TestClass.java" />
-        <option value="$PROJECT_DIR$/src/Model/ModelTest.java" />
         <option value="$PROJECT_DIR$/src/Tests/TestClassWithParameter.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/MyUnitTester.java" />
         <option value="$PROJECT_DIR$/src/View/View.java" />
         <option value="$PROJECT_DIR$/src/Model/helpMethods.java" />
+        <option value="$PROJECT_DIR$/src/Debug/Debug.java" />
+        <option value="$PROJECT_DIR$/src/Model/Debug.java" />
+        <option value="$PROJECT_DIR$/src/Model/ModelTest.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/Model/Model.java" />
+        <option value="$PROJECT_DIR$/src/Model/HelpMethods.java" />
+        <option value="$PROJECT_DIR$/src/Model/HelpModelTest.java" />
       </list>
     </option>
   </component>
@@ -227,7 +227,7 @@
               <item name="MyUnitTester" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyUnitTester" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,16 +273,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ModelTest (1)">
-    <configuration name="ModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+  <component name="RunManager" selected="JUnit.HelpModelTest.shouldReturnMessageNoTestsAvailable">
+    <configuration name="HelpModelTest.shouldReturnMessageNoTestsAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="MyUnitTester" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ModelTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.HelpModelTest" />
+      <option name="METHOD_NAME" value="shouldReturnMessageNoTestsAvailable" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -294,15 +299,20 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="HelpModelTest.shouldReturnNullInMethodInitiation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="MyUnitTester" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Model.ModelTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.HelpModelTest" />
+      <option name="METHOD_NAME" value="shouldReturnNullInMethodInitiation" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -314,13 +324,18 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ModelTest.shouldReturnStringArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="HelpModelTest.shouldReturnStringArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="MyUnitTester" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ModelTest" />
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.HelpModelTest" />
       <option name="METHOD_NAME" value="shouldReturnStringArray" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -334,14 +349,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ModelTest.shouldReturnStringList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="HelpModelTest.shouldThrowExceptionIfClassNonexistent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="MyUnitTester" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Model.ModelTest" />
-      <option name="METHOD_NAME" value="shouldReturnStringList" />
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.HelpModelTest" />
+      <option name="METHOD_NAME" value="shouldThrowExceptionIfClassNonexistent" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -354,7 +374,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="MyUnitTester (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MyUnitTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="MyUnitTester" />
       <option name="VM_PARAMETERS" />
@@ -450,19 +470,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.MyUnitTester (1)" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ModelTest.shouldReturnStringArray" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ModelTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ModelTest (1)" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ModelTest.shouldReturnStringList" />
+      <item index="0" class="java.lang.String" itemvalue="Application.MyUnitTester" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldReturnNullInMethodInitiation" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldThrowExceptionIfClassNonexistent" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldReturnStringArray" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldReturnMessageNoTestsAvailable" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ModelTest (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MyUnitTester (1)" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ModelTest.shouldReturnStringList" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ModelTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ModelTest.shouldReturnStringArray" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldReturnMessageNoTestsAvailable" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldReturnStringArray" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldThrowExceptionIfClassNonexistent" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HelpModelTest.shouldReturnNullInMethodInitiation" />
+        <item index="4" class="java.lang.String" itemvalue="Application.MyUnitTester" />
       </list>
     </recent_temporary>
   </component>
@@ -484,35 +504,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ModelTest - 2017.11.07 at 09h 39m 55s.xml">
-      <configuration name="ModelTest" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnEmptyArrayInMethodInintiation - 2017.11.09 at 13h 25m 59s.xml">
+      <configuration name="HelpModelTest.shouldReturnEmptyArrayInMethodInintiation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest - 2017.11.07 at 09h 46m 56s.xml">
-      <configuration name="ModelTest" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnEmptyArrayInMethodInintiation - 2017.11.09 at 13h 27m 28s.xml">
+      <configuration name="HelpModelTest.shouldReturnEmptyArrayInMethodInintiation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest - 2017.11.08 at 09h 20m 00s.xml">
-      <configuration name="ModelTest" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnEmptyArrayInMethodInintiation - 2017.11.09 at 13h 28m 14s.xml">
+      <configuration name="HelpModelTest.shouldReturnEmptyArrayInMethodInintiation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest - 2017.11.09 at 10h 59m 16s.xml">
-      <configuration name="ModelTest" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnMessageNoTestsAvailable - 2017.11.09 at 14h 20m 48s.xml">
+      <configuration name="HelpModelTest.shouldReturnMessageNoTestsAvailable" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest_(1) - 2017.11.07 at 09h 47m 31s.xml">
-      <configuration name="ModelTest (1)" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnNullInMethodInintiation - 2017.11.09 at 13h 31m 42s.xml">
+      <configuration name="HelpModelTest.shouldReturnNullInMethodInintiation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest_(1) - 2017.11.07 at 15h 03m 15s.xml">
-      <configuration name="ModelTest (1)" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnNullInMethodInitiation - 2017.11.09 at 14h 04m 43s.xml">
+      <configuration name="HelpModelTest.shouldReturnNullInMethodInitiation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest_(1) - 2017.11.07 at 18h 26m 51s.xml">
-      <configuration name="ModelTest (1)" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnNullInMethodInitiation - 2017.11.09 at 14h 04m 55s.xml">
+      <configuration name="HelpModelTest.shouldReturnNullInMethodInitiation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest_(1) - 2017.11.07 at 20h 16m 27s.xml">
-      <configuration name="ModelTest (1)" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnNullInMethodInitiation - 2017.11.09 at 14h 06m 15s.xml">
+      <configuration name="HelpModelTest.shouldReturnNullInMethodInitiation" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest_shouldReturnStringList - 2017.11.07 at 18h 47m 33s.xml">
-      <configuration name="ModelTest.shouldReturnStringList" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldReturnStringArray - 2017.11.09 at 14h 17m 33s.xml">
+      <configuration name="HelpModelTest.shouldReturnStringArray" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModelTest_shouldReturnStringList - 2017.11.07 at 18h 48m 19s.xml">
-      <configuration name="ModelTest.shouldReturnStringList" configurationId="JUnit" />
+    <history-entry file="HelpModelTest_shouldThrowExceptionIfClassNonexistent - 2017.11.09 at 14h 08m 11s.xml">
+      <configuration name="HelpModelTest.shouldThrowExceptionIfClassNonexistent" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -532,14 +552,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.4877651" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.47471452" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49429038" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4877651" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5122349" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5252855" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -583,14 +603,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Tests/TestClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MVC/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -681,18 +693,18 @@
         <state relative-caret-position="250">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="e#0#6276#0" expanded="true" />
+            <element signature="e#0#1401#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Debug.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Debug.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="e#20#119#0" expanded="true" />
+            <element signature="e#15#114#0" expanded="false" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -720,7 +732,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1756">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -831,16 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Debug.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/TestClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -853,14 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/OneMethodTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -881,26 +877,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/TestClassWithoutTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/TestClassWithParameter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -913,10 +893,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Debug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="1425">
           <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-256">
+          <caret line="67" column="64" lean-forward="false" selection-start-line="67" selection-start-column="64" selection-end-line="67" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/TestClassWithoutTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/OneMethodTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/HelpMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -925,29 +961,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="344">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/helpMethods.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/HelpModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="-2581">
+          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="170" column="4" lean-forward="true" selection-start-line="170" selection-start-column="4" selection-end-line="180" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
