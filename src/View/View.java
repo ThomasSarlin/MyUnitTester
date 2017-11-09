@@ -1,4 +1,4 @@
-/**
+package View; /**
  * Class Respnsibility: GUI
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
@@ -17,6 +17,12 @@ public class View {
     private JComboBox<Integer> comboBox;
 
     public View() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException
+                | UnsupportedLookAndFeelException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
         setFrame();
     }
 
@@ -31,7 +37,7 @@ public class View {
     private void setFrame() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(480, 272));
+        frame.setSize(new Dimension(1080, 720));
         frame.setLayout(new BorderLayout());
         frame.add(setTopPanel(), BorderLayout.NORTH);
         frame.add(setMiddlePanel(), BorderLayout.CENTER);
@@ -53,6 +59,7 @@ public class View {
         panel.add(label);
         panel.add(textField);
         runTestButton = new JButton("Run tests");
+
         panel.add(runTestButton);
 
         return panel;
@@ -91,10 +98,7 @@ public class View {
         innerPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
         label.setForeground(Color.white);
-        comboBox.addItem(12);
-        comboBox.addItem(14);
-        comboBox.addItem(16);
-        comboBox.addItem(18);
+        for(int i=12;i<32;i+=2)comboBox.addItem(i);
         innerPanel.add(label);
         innerPanel.add(comboBox);
         panel.add(new JLabel(),0);
@@ -105,7 +109,7 @@ public class View {
     }
 
     /**
-     * Signals to View to append set strings.
+     * Signals to View.View to append set strings.
      *
      * @param strings to be appended.
      */
@@ -115,12 +119,12 @@ public class View {
     }
 
     /**
-     * called if said class is not an implementation of "TestClass.class"
+     * called if said class is not an implementation of "Model.TestClass.class"
      */
     public void alertInvalidClass(){
         JOptionPane.showMessageDialog(frame
                 ,textField.getText()
-                        + " does not implement TestClass", "Oops",
+                        + " does not implement Model.TestClass", "Oops",
                 JOptionPane.ERROR_MESSAGE);
     }
 

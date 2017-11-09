@@ -1,4 +1,4 @@
-/**
+package Controller; /**
  * Class Responsibility: Logging
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
@@ -40,5 +40,11 @@ public class Debug {
      */
     public static void log(Level level, String msg){
         getLogger().log(level, msg);
+    }
+
+    public static void shutDown(){
+        Handler[] handlers =getLogger().getHandlers();
+        for(Handler handler:handlers)
+            handler.close();
     }
 }

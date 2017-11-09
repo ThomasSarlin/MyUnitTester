@@ -1,6 +1,6 @@
-
+package Model;
 /**
- * Class Responsibility: Model, implement the UnitTest.
+ * Class Responsibility: Model.Model, implement the UnitTest.
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
 
@@ -8,14 +8,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.logging.Level;
-
+import Controller.*;
 public class Model {
     private String className;
 
     /**
      * @param className
      * @return list of method results or
-     * null if class doesn't implement TestClass.class or
+     * null if class doesn't implement Model.TestClass.class or
      * if an exception is caught, specified in log.
      */
     public ArrayList<String> initiateTest(String className){
@@ -150,9 +150,9 @@ public class Model {
     }
 
     /**
-     * Checks if class by the name "className" implements TestClass.class
+     * Checks if class by the name "className" implements Model.TestClass.class
      * @param className name of class to be checked
-     * @return if class is implementation of TestClass
+     * @return if class is implementation of Model.TestClass
      */
 
     boolean checkClass(String className){

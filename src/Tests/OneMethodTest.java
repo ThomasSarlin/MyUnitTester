@@ -1,3 +1,6 @@
+package Tests;
+
+import Model.TestClass;
 
 public class OneMethodTest implements TestClass {
 

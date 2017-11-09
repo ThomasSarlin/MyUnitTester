@@ -1,6 +1,9 @@
+package Tests;
+
+import Model.TestClass;
 
 /**
- * TestClass called in GUI to test if SwingWorker works as intended.
+ * Model.TestClass called in GUI to test if SwingWorker works as intended.
  */
 
 public class TestClassWait implements TestClass {

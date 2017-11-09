@@ -1,3 +1,5 @@
+import Controller.Controller;
+
 /**
  * Program that runs all test methods(specific structure) in
  * a given class and displays the result of each test method in a textArea.
