@@ -1,5 +1,5 @@
 package Controller; /**
- * Class Responsibility: Controller.Controller, communication between Model.Model & View.View
+ * Class Responsibility: Controller.Controller, communication between Model & View.View
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
 */
 import Model.Debug;
@@ -16,7 +16,7 @@ public class Controller {
     View view;
     Model model;
     /**
-     * Initiation method for Controller.Controller, Model.Model and View.View.
+     * Initiation method for Controller.Controller, Model and View.View.
      */
     public Controller(){
         model = new Model();
@@ -46,7 +46,7 @@ public class Controller {
     /**
      * Starts a separate SwingWorker with the assignment to
      * check if the class specified is of "TestClass" if yes,
-     * initiate the test in Model.Model.
+     * initiate the test in Model.
      *
      * When test is done, display result in textArea.
      */

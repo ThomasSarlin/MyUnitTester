@@ -1,5 +1,5 @@
-package Model;
 
+import Model.HelpMethods;
 import Tests.OneMethodTest;
 import org.junit.Assert;
 import org.junit.Test;

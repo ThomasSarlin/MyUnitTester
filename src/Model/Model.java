@@ -1,6 +1,6 @@
 package Model;
 /**
- * Class Responsibility: Model.Model, implement the UnitTest.
+ * Class Responsibility: Model, implement the UnitTest.
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
 import java.lang.reflect.Method;
