@@ -1,7 +1,5 @@
 package Tests;
 
-import Model.TestClass;
-
 public class Test1 implements TestClass {
     private MyInt myInt;
 

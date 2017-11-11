@@ -6,7 +6,7 @@ import Controller.Controller;
  * The given class must also follow a specific structure.
  *
  * Specifiations of class:
- * Should implement "TestClass.class"
+ * Should implement "Tests.TestClass.class"
  * No parameters in constructor
  * Could have a setUp method(will be called before each test).
  * Could have a tearDown method(will be called at end of all test).
@@ -20,7 +20,6 @@ import Controller.Controller;
 
 public class MyUnitTester {
     public static void main(String args[]){
-        Controller controller = new Controller();
-        controller.run();
+        new Controller();
     }
 }

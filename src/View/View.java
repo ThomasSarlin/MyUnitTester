@@ -119,12 +119,12 @@ public class View {
     }
 
     /**
-     * called if said class is not an implementation of "Model.TestClass.class"
+     * called if said class is not an implementation of "TestClass.class"
      */
     public void alertInvalidClass(){
         JOptionPane.showMessageDialog(frame
                 ,textField.getText()
-                        + " does not implement Model.TestClass", "Oops",
+                        + " does not implement TestClass", "Oops",
                 JOptionPane.ERROR_MESSAGE);
     }
 
@@ -150,7 +150,7 @@ public class View {
         clearFieldButton.addActionListener(listener);
     }
 
-    public void addComboBoxListener(ActionListener listener){
+    public void addComboBoxAL(ActionListener listener){
         comboBox.addActionListener(listener);
     }
 

@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.logging.*;
 
 public class Debug {
-    static Logger logger;
-    public Handler fileHandler;
+    private static Logger logger;
+    private Handler fileHandler;
 
     /**
      * Handles the initiation of the Logger, specifies output file aswell.

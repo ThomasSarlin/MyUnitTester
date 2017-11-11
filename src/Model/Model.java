@@ -3,17 +3,15 @@ package Model;
  * Class Responsibility: Model.Model, implement the UnitTest.
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
-import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.logging.Level;
 
 public class Model {
 
     /**
      * @param className
      * @return list of method results or
-     * null if class doesn't implement Model.TestClass.class or
+     * null if class doesn't implement Tests.TestClass.class or
      * if an exception is caught, specified in log.
      */
     public ArrayList<String> initiateTest(String className)

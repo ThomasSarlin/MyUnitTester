@@ -1,3 +1,3 @@
-package Model;
+package Tests;
 
 public interface TestClass { }

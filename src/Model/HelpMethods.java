@@ -1,20 +1,18 @@
 package Model;
-
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
-class HelpMethods {
+public class HelpMethods {
     /**
-     * Tries to run a specified Method from
+     * Tries to Controller a specified Method from
      * a specified class on a specific Object
-     * @param method - Method to run
+     * @param method - Method to Controller
      * @param tempClass - Class which has method
      * @param classObject - Instance of Object(should be of class tempClass)
      */
-    static void tryMethod(String method,Class<?> tempClass
+    public static void tryMethod(String method,Class<?> tempClass
             , Object classObject) throws NoSuchMethodException
             , InvocationTargetException, IllegalAccessException {
 
@@ -30,7 +28,7 @@ class HelpMethods {
      * @param classObject - Instantiated object of said class
      * @return ArrayList representing the data from the invocations.
      */
-    static ArrayList<String> invokeMethods(ArrayList<Method> methods
+    public static ArrayList<String> invokeMethods(ArrayList<Method> methods
             , Class<?> tempClass, Object classObject) {
 
         boolean result;
@@ -74,7 +72,7 @@ class HelpMethods {
             methodResults.add("\nSuccessful tests: " +successCount
                     +"\nFailed tests:" +failCount
                     +"\nFailed tests with Exception thrown: "
-                    + exceptionFailCount);
+                    + exceptionFailCount + "\n ------------------ \n ");
         else
             methodResults.add("No tests available");
         return methodResults;
@@ -82,15 +80,16 @@ class HelpMethods {
 
 
     /**
-     * Checks if class by the name "className" implements Model.TestClass.class
+     * Checks if class by the name "className" implements TestClass.class
      * @param className name of class to be checked
-     * @return if class is implementation of Model.TestClass
+     * @return if class is implementation of TestClass
      */
 
-    static boolean checkClass(String className) throws ClassNotFoundException{
+    public static boolean checkClass(String className) throws ClassNotFoundException{
         boolean result = false;
+
         try {
-            result= (TestClass.class.isAssignableFrom(Class.forName(className))
+            result= (Tests.TestClass.class.isAssignableFrom(Class.forName(className))
                         &&Class.forName(className)
                         .getConstructor().getParameterCount()==0);
         } catch (NoSuchMethodException e) {
@@ -103,7 +102,7 @@ class HelpMethods {
     /**
      * @return methods represented in class from className
      */
-    static ArrayList<Method> initiateMethods(String className)
+    public static ArrayList<Method> initiateMethods(String className)
             throws ClassNotFoundException {
         ArrayList<Method> result = new ArrayList<>();
         Method[] methods = Class.forName(className).getMethods();
@@ -118,7 +117,7 @@ class HelpMethods {
      * @param m method to be checked
      * @return if correct format
      */
-    static boolean checkTestMethod(Method m){
+    public static boolean checkTestMethod(Method m){
         return(m.getName().substring(0,4).equals("test")
                 &&m.getParameterCount()==0
                 &&m.getReturnType().toString().equals("boolean"));
@@ -127,7 +126,7 @@ class HelpMethods {
     /**
      * @return Object representing given Class from className
      */
-    static Object instantiateClassObject(String className){
+    public static Object instantiateClassObject(String className){
         Object result= null;
         try {
 
@@ -143,7 +142,7 @@ class HelpMethods {
     /**
      * @return initiated Class from given className
      */
-    static Class<?> initiateTempClass(String className){
+    public static Class<?> initiateTempClass(String className){
         Class<?> result=null;
         try {
             result= Class.forName(className);
@@ -154,6 +153,4 @@ class HelpMethods {
         }
         return result;
     }
-
-
 }

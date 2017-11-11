@@ -1,7 +1,5 @@
 package Tests;
 
-import Model.TestClass;
-
 /**
  * Class that represent incorrect format of constructor
  */

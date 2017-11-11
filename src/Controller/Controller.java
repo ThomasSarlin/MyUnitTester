@@ -15,18 +15,17 @@ import java.util.logging.Level;
 public class Controller {
     View view;
     Model model;
-
     /**
      * Initiation method for Controller.Controller, Model.Model and View.View.
      */
-    public void run(){
+    public Controller(){
         model = new Model();
 
         SwingUtilities.invokeLater(() -> {
             view = new View();
             view.addClearButtonAL(new ClearActionListener());
             view.addRunTestButtonAL(new RunTestActionListener());
-            view.addComboBoxListener(new ComboBoxListener());
+            view.addComboBoxAL(new ComboBoxListener());
             view.show();
         });
 
@@ -37,7 +36,7 @@ public class Controller {
      * Communicates what should happen in case "Clear" button is pressed
      * Clears the textArea in MiddlePane.
      */
-    public class ClearActionListener implements ActionListener {
+    private class ClearActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             view.clearTextArea();
@@ -46,12 +45,12 @@ public class Controller {
 
     /**
      * Starts a separate SwingWorker with the assignment to
-     * check if the class specified is of "Model.TestClass" if yes,
+     * check if the class specified is of "TestClass" if yes,
      * initiate the test in Model.Model.
      *
      * When test is done, display result in textArea.
      */
-    public class RunTestActionListener implements ActionListener {
+    private class RunTestActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             new SwingWorker<ArrayList<String>,Object>(){
@@ -89,7 +88,7 @@ public class Controller {
         }
     }
 
-    public class ComboBoxListener implements ActionListener{
+    private class ComboBoxListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -97,7 +96,7 @@ public class Controller {
         }
     }
 
-    public class ShutDownThread extends Thread{
+    private class ShutDownThread extends Thread{
         public void run(){
             Debug.shutDown();
         }

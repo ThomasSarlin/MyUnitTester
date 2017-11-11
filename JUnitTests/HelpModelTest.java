@@ -35,15 +35,16 @@ public class HelpModelTest {
     }
 
     @Test (expected = ClassNotFoundException.class)
-    public void shouldIdentifyInvalidTestClass() throws NoSuchMethodException
+    public void shouldThrowExceptionNoSuchClass() throws NoSuchMethodException
             , ClassNotFoundException {
         HelpMethods.checkClass("FakeMethodTest");
     }
 
-    @Test (expected = ClassNotFoundException.class)
+    @Test
     public void shouldReturnFalseInvalidTestClass() throws NoSuchMethodException
             , ClassNotFoundException {
-        Assert.assertFalse(HelpMethods.checkClass("FakeMethodTest"));
+        Assert.assertFalse(HelpMethods.checkClass(
+                "Tests.TestNoImplementation"));
     }
 
 
