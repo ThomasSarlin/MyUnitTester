@@ -3,7 +3,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.logging.Level;
-
 public class HelpMethods {
     /**
      * Tries to Controller a specified Method from
