@@ -1,4 +1,3 @@
-package Model;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -32,7 +31,13 @@ public class HelpMethods {
 
         boolean result;
         ArrayList<String> methodResults=new ArrayList<>();
+
+        if(methods==null ){
+            methodResults.add("No tests available");
+            return methodResults;
+        }
         int successCount=0,failCount=0,exceptionFailCount=0;
+
 
         for (Method m:methods){
             try {
@@ -84,11 +89,11 @@ public class HelpMethods {
      * @return if class is implementation of TestClass
      */
 
-    public static boolean checkClass(String className) throws ClassNotFoundException{
+    public static boolean checkClass(String className) throws ClassNotFoundException {
         boolean result = false;
 
         try {
-            result= (Tests.TestClass.class.isAssignableFrom(Class.forName(className))
+            result= (TestClass.class.isAssignableFrom(Class.forName(className))
                         &&Class.forName(className)
                         .getConstructor().getParameterCount()==0);
         } catch (NoSuchMethodException e) {

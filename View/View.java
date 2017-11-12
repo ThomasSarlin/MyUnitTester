@@ -1,4 +1,4 @@
-package View; /**
+ /**
  * Class Respnsibility: GUI
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
@@ -121,10 +121,9 @@ public class View {
     /**
      * called if said class is not an implementation of "TestClass.class"
      */
-    public void alertInvalidClass(){
+    public void alert(String message){
         JOptionPane.showMessageDialog(frame
-                ,textField.getText()
-                        + " does not implement TestClass", "Oops",
+                ,message, "Oops",
                 JOptionPane.ERROR_MESSAGE);
     }
 

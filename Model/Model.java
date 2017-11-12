@@ -1,4 +1,4 @@
-package Model;
+
 /**
  * Class Responsibility: Model, implement the UnitTest.
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
@@ -11,7 +11,7 @@ public class Model {
     /**
      * @param className
      * @return list of method results or
-     * null if class doesn't implement Tests.TestClass.class or
+     * null if class doesn't implement TestClass.class or
      * if an exception is caught, specified in log.
      */
     public ArrayList<String> initiateTest(String className)
@@ -29,10 +29,11 @@ public class Model {
     private ArrayList<String> runTest(String className)
             throws ClassNotFoundException {
         ArrayList<Method> methods= HelpMethods.initiateMethods(className);
+
         Object classObject= HelpMethods.instantiateClassObject(className);
         Class<?> tempClass = HelpMethods.initiateTempClass(className);
 
-        return (methods==null|classObject==null|tempClass==null) ? null
-                : HelpMethods.invokeMethods(methods,tempClass,classObject);
+        return (classObject==null|tempClass==null) ?
+                null : HelpMethods.invokeMethods(methods,tempClass,classObject);
     }
 }

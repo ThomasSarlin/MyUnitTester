@@ -1,4 +1,3 @@
-package Tests;
 
 public class MyInt {
     private int val;

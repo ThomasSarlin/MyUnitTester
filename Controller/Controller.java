@@ -1,10 +1,7 @@
-package Controller; /**
+/**
  * Class Responsibility: Controller.Controller, communication between Model & View.View
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
 */
-import Model.Debug;
-import Model.Model;
-import View.View;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,7 +60,7 @@ public class Controller {
                                 (view.getTextField().getText());
                     } catch (ClassNotFoundException e) {
                         Debug.log(Level.INFO, e.getMessage()
-                                + " Class" + view.getTextField().getText()
+                                + " Class " + view.getTextField().getText()
                                 + " invalid or non-exsisting.");
                     }
                     return result;
@@ -78,7 +75,8 @@ public class Controller {
                                     -> view.stringsToTextArea(strings));
                         else
                             SwingUtilities.invokeLater(()
-                                    -> view.alertInvalidClass());
+                                    -> view.alert("Class: " + view.getTextField()
+                                    + " not found"));
                     }  catch (InterruptedException | ExecutionException e) {
                             Debug.log(Level.WARNING,e.getCause()
                                     +"generated in method done");

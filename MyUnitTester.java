@@ -1,4 +1,3 @@
-import Controller.Controller;
 
 /**
  * Program that runs all test methods(specific structure) in
@@ -6,7 +5,7 @@ import Controller.Controller;
  * The given class must also follow a specific structure.
  *
  * Specifiations of class:
- * Should implement "Tests.TestClass.class"
+ * Should implement "TestClass.class"
  * No parameters in constructor
  * Could have a setUp method(will be called before each test).
  * Could have a tearDown method(will be called at end of all test).

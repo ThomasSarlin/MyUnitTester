@@ -1,7 +1,5 @@
-package Tests;
-
 /**
- * Tests.TestClass called in GUI to test if SwingWorker works as intended.
+ * TestClass called in GUI to test if SwingWorker works as intended.
  */
 
 public class TestClassWait implements TestClass {

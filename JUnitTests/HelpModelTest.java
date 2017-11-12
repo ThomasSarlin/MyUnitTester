@@ -1,6 +1,4 @@
 
-import Model.HelpMethods;
-import Tests.OneMethodTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,25 +11,25 @@ public class HelpModelTest {
     @Test
     public void shouldRecognizeValidTestMethod() throws NoSuchMethodException {
         Assert.assertTrue(HelpMethods.checkTestMethod(
-                Tests.OneMethodTest.class.getMethod("testReturnTrue")));
+                OneMethodTest.class.getMethod("testReturnTrue")));
     }
     @Test
     public void shouldRecognizeInvalidTestMethod()
             throws NoSuchMethodException {
         Assert.assertFalse(HelpMethods.checkTestMethod(
-                Tests.OneMethodTest.class.getMethod("setUp")));
+                OneMethodTest.class.getMethod("setUp")));
     }
 
     //Tests for checkClass
     @Test
     public void shouldIgnoreClassWithParamConstr() throws NoSuchMethodException, ClassNotFoundException {
         Assert.assertFalse(
-                HelpMethods.checkClass("Tests.TestClassWithParameter"));
+                HelpMethods.checkClass("TestClassWithParameter"));
     }
 
     @Test
     public void shouldIdentifyTestClass() throws NoSuchMethodException, ClassNotFoundException {
-        Assert.assertTrue(HelpMethods.checkClass("Tests.OneMethodTest"));
+        Assert.assertTrue(HelpMethods.checkClass("OneMethodTest"));
     }
 
     @Test (expected = ClassNotFoundException.class)
@@ -44,7 +42,7 @@ public class HelpModelTest {
     public void shouldReturnFalseInvalidTestClass() throws NoSuchMethodException
             , ClassNotFoundException {
         Assert.assertFalse(HelpMethods.checkClass(
-                "Tests.TestNoImplementation"));
+                "TestNoImplementation"));
     }
 
 
@@ -52,7 +50,7 @@ public class HelpModelTest {
     @Test
     public void shouldInstantiateClassObject(){
         Assert.assertEquals(OneMethodTest.class,HelpMethods
-                .instantiateClassObject("Tests.OneMethodTest")
+                .instantiateClassObject("OneMethodTest")
                 .getClass());
     }
     @Test
@@ -65,8 +63,8 @@ public class HelpModelTest {
 
     @Test
     public void shouldInitiateTempClass(){
-        Assert.assertEquals(Tests.OneMethodTest.class,HelpMethods
-                .initiateTempClass("Tests.OneMethodTest"));
+        Assert.assertEquals(OneMethodTest.class,HelpMethods
+                .initiateTempClass("OneMethodTest"));
     }
     @Test
     public void shouldNotInitiateTempClass(){
@@ -97,13 +95,13 @@ public class HelpModelTest {
     public void shouldInitiateMethods()
             throws ClassNotFoundException {
         Assert.assertTrue(HelpMethods
-                .initiateMethods("Tests.OneMethodTest")!=null);
+                .initiateMethods("OneMethodTest")!=null);
     }
     @Test
     public void shouldReturnNullInMethodInitiation()
             throws ClassNotFoundException {
         Assert.assertTrue(HelpMethods
-                .initiateMethods("Tests.TestClassWithoutTests")==null);
+                .initiateMethods("TestClassWithoutTests")==null);
     }
     @Test (expected = ClassNotFoundException.class)
     public void shouldThrowExceptionIfClassNonexistent()
@@ -116,7 +114,7 @@ public class HelpModelTest {
     @Test
     public void shouldReturnStringArray() throws ClassNotFoundException {
         Assert.assertEquals(ArrayList.class,HelpMethods.invokeMethods(
-                HelpMethods.initiateMethods("Tests.OneMethodTest"),
+                HelpMethods.initiateMethods("OneMethodTest"),
                 OneMethodTest.class,new OneMethodTest()).getClass());
     }
 }

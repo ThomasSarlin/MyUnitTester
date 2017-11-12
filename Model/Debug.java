@@ -1,10 +1,7 @@
-package Model; /**
+/**
  * Class Responsibility: Logging
  *@Author Thomas Sarlin - id15tsn, thomas.sarlin@gmail.com
  */
-
-import Model.Model;
-
 import java.io.IOException;
 import java.util.logging.*;
 

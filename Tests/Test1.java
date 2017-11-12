@@ -1,4 +1,3 @@
-package Tests;
 
 public class Test1 implements TestClass {
     private MyInt myInt;
