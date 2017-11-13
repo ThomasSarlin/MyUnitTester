@@ -70,13 +70,14 @@ public class Controller {
                 protected void done() {
                     try {
                         ArrayList<String> strings=get();
-                        if(strings!=null)
+                        if(strings.get(0)=="Valid class")
                             SwingUtilities.invokeLater(()
                                     -> view.stringsToTextArea(strings));
                         else
                             SwingUtilities.invokeLater(()
-                                    -> view.alert("Class: " + view.getTextField()
-                                    + " not found"));
+                                    -> view.alert("Class: "
+                                    + view.getTextField().getText()
+                                    + " " +  strings.get(0)));
                     }  catch (InterruptedException | ExecutionException e) {
                             Debug.log(Level.WARNING,e.getCause()
                                     +"generated in method done");

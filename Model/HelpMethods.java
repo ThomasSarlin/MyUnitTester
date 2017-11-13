@@ -1,3 +1,4 @@
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class HelpMethods {
 
         boolean result;
         ArrayList<String> methodResults=new ArrayList<>();
+        methodResults.add("Valid class");
+        methodResults.add(" " + tempClass.getName()+ "\n");
 
         if(methods==null ){
             methodResults.add("No tests available");
@@ -89,17 +92,31 @@ public class HelpMethods {
      * @return if class is implementation of TestClass
      */
 
-    public static boolean checkClass(String className) throws ClassNotFoundException {
-        boolean result = false;
+    public static String checkClass(String className) {
+        String result;
 
         try {
-            result= (TestClass.class.isAssignableFrom(Class.forName(className))
-                        &&Class.forName(className)
-                        .getConstructor().getParameterCount()==0);
-        } catch (NoSuchMethodException e) {
-            Debug.log(Level.WARNING,e.getMessage()
+            if (!TestClass.class.isAssignableFrom(Class.forName(className))) {
+                result = ("does not implement TestClass");
+                return result;
+            }
+
+            Constructor<?> constructors[] = Class.forName(className)
+                    .getConstructors();
+            for(Constructor c: constructors)
+                if (c.getParameterCount()!= 0) {
+                    result = ("Invalid parameter count");
+                    return result;
+                }
+
+        }catch (ClassNotFoundException e) {
+            result=("Class not found");
+            Debug.log(Level.WARNING,"Class not found"
                     + " caught in method checkClass");
+            return result;
         }
+
+        result=("Valid class");
         return result;
     }
 
@@ -137,8 +154,8 @@ public class HelpMethods {
             result= Class.forName(className).newInstance();
         } catch (ClassNotFoundException | IllegalAccessException
                 | InstantiationException e) {
-            Debug.log(Level.WARNING,e.getCause()
-                    +" caught in method instantiateClass");
+            Debug.log(Level.WARNING, e.toString()
+                    +" caught in method instantiateClassObject");
         }
         return result;
     }

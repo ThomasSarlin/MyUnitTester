@@ -16,7 +16,9 @@ public class Model {
      */
     public ArrayList<String> initiateTest(String className)
             throws ClassNotFoundException {
-            return(HelpMethods.checkClass(className)?runTest(className):null);
+            ArrayList<String> result = new ArrayList<>();
+            result.add(HelpMethods.checkClass(className));
+            return(result.get(0).equals("Valid class")?runTest(className):result);
     }
 
     /**

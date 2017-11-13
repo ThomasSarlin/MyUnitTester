@@ -23,26 +23,28 @@ public class HelpModelTest {
     //Tests for checkClass
     @Test
     public void shouldIgnoreClassWithParamConstr() throws NoSuchMethodException, ClassNotFoundException {
-        Assert.assertFalse(
+        Assert.assertEquals("Invalid parameter count",
                 HelpMethods.checkClass("TestClassWithParameter"));
     }
 
     @Test
     public void shouldIdentifyTestClass() throws NoSuchMethodException, ClassNotFoundException {
-        Assert.assertTrue(HelpMethods.checkClass("OneMethodTest"));
+        Assert.assertEquals("Valid class"
+                ,HelpMethods.checkClass("OneMethodTest"));
     }
 
-    @Test (expected = ClassNotFoundException.class)
-    public void shouldThrowExceptionNoSuchClass() throws NoSuchMethodException
+    @Test
+    public void shouldReturnNoSuchClass() throws NoSuchMethodException
             , ClassNotFoundException {
-        HelpMethods.checkClass("FakeMethodTest");
+        Assert.assertEquals("Class not found"
+                ,HelpMethods.checkClass("FakeMethodTest"));
     }
 
     @Test
     public void shouldReturnFalseInvalidTestClass() throws NoSuchMethodException
             , ClassNotFoundException {
-        Assert.assertFalse(HelpMethods.checkClass(
-                "TestNoImplementation"));
+        Assert.assertEquals("does not implement TestClass"
+                ,HelpMethods.checkClass("TestNoImplementation"));
     }
 
 
